@@ -6,5 +6,8 @@ module.exports = {
   },
   findUser: (user) => {
     return db('users').where(user);
+  },
+  getUsers: () => {
+    return db('users');
   }
 }
