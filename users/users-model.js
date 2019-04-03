@@ -7,7 +7,8 @@ module.exports = {
   findUser: (user) => {
     return db('users').where(user);
   },
-  getUsers: () => {
-    return db('users');
+  getUsers: (user) => {
+    const dept = db('users').select('department').where('username', user).first();
+    return db('users').where('department', dept);
   }
 }
