@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, withRouter } from 'react-router-dom';
 
 import SignUp from './signup/SignUp';
 import SignIn from './signin/SignIn';
@@ -8,6 +8,12 @@ import Users from './users/Users';
 import './App.css';
 
 class App extends Component {
+
+  signout = () => {
+    localStorage.removeItem('jwt');
+    this.props.history.push('/signin');
+  };
+
   render() {
     return (
       <div>
@@ -19,7 +25,7 @@ class App extends Component {
             &nbsp; | &nbsp;
             <NavLink to='/users'>Users</NavLink>
             &nbsp; | &nbsp;
-            <button>Sign Out</button>
+            <button onClick={this.signout}>Sign Out</button>
           </nav>
         </header>
         <main>
@@ -32,4 +38,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
