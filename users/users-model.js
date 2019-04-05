@@ -2,7 +2,8 @@ const db = require('../database/dbConfig');
 
 module.exports = {
   register: (newUser) => {
-    return db('users').insert(newUser);
+    const id = db('users').insert(newUser).then(id => id[0]);
+    return db('users').where('id', id);
   },
   findUser: (user) => {
     return db('users').where(user);
