@@ -18,6 +18,8 @@ class App extends Component {
             <NavLink to='/signin'>Sign In</NavLink>
             &nbsp; | &nbsp;
             <NavLink to='/users'>Users</NavLink>
+            &nbsp; | &nbsp;
+            <button>Sign Out</button>
           </nav>
         </header>
         <main>
